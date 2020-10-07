@@ -1,0 +1,47 @@
+
+[
+    {
+        "model": "movies.movie",
+        "pk": 1,
+        "fields": {
+            "title": "Shrek",
+            "genre": "Comedia",
+            "year": "200",
+            "created_date": "2020-10-07T14:29:51.436739Z",
+            "updated_date": "2020-10-07T14:29:51.436756Z"
+        }
+    },
+    {
+        "model": "movies.movie",
+        "pk": 2,
+        "fields": {
+            "title": "Titanic",
+            "genre": "Tragedia",
+            "year": "1994",
+            "created_date": "2020-10-07T14:30:06.584437Z",
+            "updated_date": "2020-10-07T14:30:06.584454Z"
+        }
+    },
+    {
+        "model": "movies.movie",
+        "pk": 3,
+        "fields": {
+            "title": "Chucky",
+            "genre": "Terror",
+            "year": "1990",
+            "created_date": "2020-10-07T14:30:26.729864Z",
+            "updated_date": "2020-10-07T14:30:26.729880Z"
+        }
+    },
+    {
+        "model": "movies.movie",
+        "pk": 4,
+        "fields": {
+            "title": "Wall-e",
+            "genre": "Fantasia",
+            "year": "2010",
+            "created_date": "2020-10-07T15:08:49.264484Z",
+            "updated_date": "2020-10-07T15:08:49.264540Z"
+        }
+    }
+]
