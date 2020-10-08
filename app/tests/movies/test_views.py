@@ -1,5 +1,3 @@
-import json
-
 import pytest
 
 from movies.models import Movie
@@ -12,12 +10,8 @@ def test_add_movie(client):
 
     resp = client.post(
         "/api/movies/",
-        {
-            "title": "The Big Lebowski",
-            "genre": "comedy",
-            "year": "1998",
-        },
-        content_type="application/json"
+        {"title": "The Big Lebowski", "genre": "comedy", "year": "1998"},
+        content_type="application/json",
     )
     assert resp.status_code == 201
     assert resp.data["title"] == "The Big Lebowski"
@@ -31,11 +25,7 @@ def test_add_movie_invalid_json(client):
     movies = Movie.objects.all()
     assert len(movies) == 0
 
-    resp = client.post(
-        "/api/movies/",
-        {},
-        content_type="application/json"
-    )
+    resp = client.post("/api/movies/", {}, content_type="application/json")
     assert resp.status_code == 400
 
     movies = Movie.objects.all()
@@ -49,11 +39,8 @@ def test_add_movie_invalid_json_keys(client):
 
     resp = client.post(
         "/api/movies/",
-        {
-            "title": "The Big Lebowski",
-            "genre": "comedy",
-        },
-        content_type="application/json"
+        {"title": "The Big Lebowski", "genre": "comedy"},
+        content_type="application/json",
     )
     assert resp.status_code == 400
 
