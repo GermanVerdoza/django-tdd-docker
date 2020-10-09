@@ -11,20 +11,19 @@ build:
     - docker:dind
   variables:
     DOCKER_DRIVER: overlay2
-  script:
-    - cd app
-    - docker login -u 12211479verdozagerman -p 4685GitLab https://gitlab.com/12211479verdozagerman/test-django-docker
-    - docker pull registry.gitlab.com/12211479verdozagerman/test-django-dockerlatest || true
+   - cd app
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker pull $IMAGE:latest || true
     - docker build
-        --cache-from registry.gitlab.com/12211479verdozagerman/test-django-docker:latest
-        --tag registry.gitlab.com/12211479verdozagerman/test-django-docker:latest
-        --file ./Dockerfile
+        --cache-from $IMAGE:latest
+        --tag $IMAGE:latest
+        --file ./Dockerfile.prod
         "."
-    - docker push registry.gitlab.com/12211479verdozagerman/test-django-docker:latest
+    - docker push $IMAGE:latest
 
 test:
   stage: test
-  image: registry.gitlab.com/12211479verdozagerman/test-django-docker:latest
+  image: $IMAGE:latest
   services:
     - postgres:latest
   variables:
