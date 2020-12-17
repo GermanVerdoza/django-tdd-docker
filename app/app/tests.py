@@ -3,7 +3,7 @@ from django.test import TestCase
 from app.calc import substract
 
 
-class  CalcTests(TestCase):
+class CalcTests(TestCase):
 
     def test_substract_numbers(self):
         """Test two number substraction"""
